@@ -1,0 +1,29 @@
+.wordmark{
+	cursor: pointer;
+	margin-top: setting-get('rhythm') / 2;
+	margin-left: setting-get('rhythm') / 2;
+	margin-bottom: setting-get('rhythm') / 4;
+	display: inline-block;
+	font-size: 1.062em;
+	text-decoration: none;
+
+	&--left {
+		color: #fdfdfd;
+		font-weight: 300;
+	}
+
+	&--right {
+		color: #ffffff;
+		font-weight: 500;
+	}
+
+	@include breakpoint(setting-get('heading nav inline breakpoint')){
+
+		margin-bottom: setting-get('rhythm') / 2;
+		float: left;
+	}
+
+	@include breakpoint(768px){
+		margin-left: 0;
+	}
+}

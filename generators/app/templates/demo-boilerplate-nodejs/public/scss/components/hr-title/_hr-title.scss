@@ -1,0 +1,12 @@
+.hr-title {
+	margin-top: setting-get('rhythm') * 1.5;
+
+	& + &--title {
+		margin-top: - setting-get('rhythm') * 0.98;
+		margin-bottom: 0rem;
+		background: white;
+		display: inline-block;
+		position: absolute;
+		padding-right: setting-get('rhythm') / 2;
+	}
+}

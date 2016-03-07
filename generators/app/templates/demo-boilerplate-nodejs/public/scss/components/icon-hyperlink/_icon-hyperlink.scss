@@ -1,0 +1,15 @@
+.icon-hyperlink {
+	float: right;
+
+	button[type="reset"] {
+		@include button--strip-styles;
+		@include base--a;
+	}
+
+	.icon {
+		color: setting-get('secondary support color');
+	}
+	.icon-reset {
+		font-size: 1.5em;
+	}
+}

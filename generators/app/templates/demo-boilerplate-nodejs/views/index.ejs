@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <title>[Service Name Demo]</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!-- top level heading -->
+  <header class="_demo--heading">
+    <div class="_demo--container">
+      <a class="wordmark" href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/">
+        <span class="wordmark--left">IBM</span>
+        <span class="wordmark--right">Watson Developer Cloud</span>
+      </a>
+      <nav class="heading-nav" role="menubar">
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="#" role="menuitem">
+                    	Services
+					</a>
+        </li>
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="#" role="menuitem">
+						Docs
+					</a>
+        </li>
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="#" role="menuitem">
+						App Gallery
+					</a>
+        </li>
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="#" role="menuitem">
+                        Community
+                    </a>
+        </li>
+      </nav>
+    </div>
+  </header>
+  <div class="_demo--banner banner">
+    <div class="_demo--container">
+      <div class="banner--service-container">
+        <div class="banner--service-icon-container">
+          <img class="banner--service-icon" src="images/service-icon.svg" alt="[Some Service API Icon]">
+        </div>
+        <div class="banner--service-info">
+          <h1 class="banner--service-title base--h1">
+                      <img class="banner--service-icon_INLINE" src="images/service-icon.svg" alt="Some Service API Icon">
+                           Some Service
+                  </h1>
+          <div class="banner--service-description">
+            Some Description
+          </div>
+        </div>
+      </div>
+      <div class="banner--service-resource-container">
+        <div class="banner--row">
+          <div class="banner--service-resource">
+            <span class="icon icon-link"></span>
+            <strong>Resources:</strong>
+          </div>
+        </div>
+        <div class="banner--row">
+          <div class="banner--service-links">
+            <li class="base--li banner--service-link-item">
+              <a href="#" class="base--a">Documentation</a>
+            </li>
+            <li class="base--li banner--service-link-item">
+              <a href="#" class="base--a">API Explorer</a>
+            </li>
+            <li class="base--li banner--service-link-item">
+              <a href="#" class="base--a">Fork on Github</a>
+            </li>
+            <li class="base--li banner--service-link-item">
+              <a href="#" class="base--a">Deploy on Bluemix</a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- demo body -->
+  <div class="_demo--container">
+    <article class="_content base--article">
+      <h2 class="base--h2">Some other heading here</h2>
+      <h3 class="base--h3">Some heading</h3>
+      <input class="base--input">
+      <button type="submit" class="base--button">Submit</button>
+      <p class="base--p">Bacon ipsum dolor amet salami cupim fatback short loin, short ribs rump brisket. Spare ribs tri-tip turkey, jowl pastrami pork chop turducken frankfurter cupim shoulder alcatra ground round. Tenderloin cow spare ribs boudin meatball leberkas shoulder
+        chicken strip steak short loin. Pastrami pancetta kielbasa leberkas meatloaf brisket flank swine cow biltong. Doner fatback t-bone drumstick beef spare ribs picanha. Doner alcatra filet mignon pig meatloaf pancetta andouille bacon chuck. Alcatra
+        leberkas frankfurter jowl picanha, porchetta venison meatball ham hock bresaola.</p>
+      <h3 class="base--h3">Output</h3>
+      <div class="underscore-example"></div>
+    </article>
+  </div>
+
+  <!-- Underscore Template Example -->
+  <script type="text/html" id="someTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <div>
+        <%= item %>
+      </div>
+      <% }); %>
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <script type="text/javascript" src="js/demo.js"></script>
+</body>
+
+</html>
