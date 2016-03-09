@@ -20,6 +20,8 @@
     "express": "^4.12.2",
     "express-secure-only": "^0.2.1",
     "multiparty": "^4.1.2",
+    <% if (apis['text-to-speech']) { %>"fs": "^0.0.2",<% } %>
     "watson-developer-cloud": "^1.2.5"
-  }
+  },
+  "engine": "node >= 4.2.4"
 }

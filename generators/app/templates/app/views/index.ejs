@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Watson Developer Cloud Boilerplate</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <img class="watson-power-image" src="images/watson-power.jpg" title="By the power of Watson, I have the power!" />
+    <h1 class="base--h1">Congratulations, you got it working!</h1>
+    <p class="base--p">This boilerplate is to help you get started with using the Watson API's.</p>
+    <h2 class="base--h2">Getting Started</h2>
+    <p class="base--p">Let's cut to the chase. Before you can use any of the API's, you will first need API credentials.</p>
+    <p class="base--p">Follow this <a class="base--a" href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/gs-credentials.shtml#getCreds">Step-by-Step Guide</a> on how to get the credentials from Bluemix.</p>
+    <p class="base--p">Once you've obtained the credentials, you can go to this project's <code class="base--code">app.js</code> file and replace the <code class="base--code">&lt;username&gt;</code>'s and <code class="base--code">&lt;password&gt;</code>'s with your credentials.</p>
+    <p class="base--p">If you got all that working, we can now begin playing! :)</p>
+    <% if (apis['text-to-speech']) { %>
+      <h2 class="base--h2">Text to Speech Example</h2>
+      <p class="base--p">This is a basic demonstration of the Text to Speech API.</p>
+      <p class="base--p"><a href="https://console.ng.bluemix.net/catalog/services/text-to-speech/" target="_blank" class="base--a">Get Text to Speech Credentials here.</a></p>
+      <h5 class="base--h5">Input:</h5>
+      <textarea class="base--textarea js-text-to-speech-text-input" name="text-input" rows="5">My voice gives me super strength!</textarea>
+      <div class="row">
+        <button class="base--button js-text-to-speech-submit-button" type="submit">Submit</button>
+      </div>
+      <h5 class="base--h5">Output:</h5>
+      <audio class="js-text-to-speech-player" src controls></audio>
+    <% } %>
+    <% if (apis['personality-insights']) { %>
+      <h2 class="base--h2">Personality Insights Example</h2>
+      <p class="base--p">This is a basic demonstration of the Personality Insights API.</p>
+      <p class="base--p"><a href="https://console.ng.bluemix.net/catalog/services/personality-insights/" target="_blank" class="base--a">Get Personality Insights Credentials here.</a></p>
+      <h5 class="base--h5">Input:</h5>
+      <textarea class="base--textarea js-personality-insights-text-input" name="text-input" rows="5">
+        For more than twenty years past I have been paying special attention to the question of Health. While in England, I had to make my own arrangements for food and drink, and I can say, therefore, that my experience is quite reliable. I have arrived at certain definite conclusions from that experience, and I now set them down for the benefit of my readers.
+        As the familiar saying goes, ‘Prevention is better than cure.’ It is far easier and safer to prevent illness by the observance of the laws of health than to set about curing the illness which has been brought on by our own ignorance and carelessness. Hence it is the duty of all thoughtful men to understand aright the laws of health, and the object of the following pages is to give an account of these laws. We shall also consider the best methods of cure for some of the most common diseases.
+      </textarea>
+      <div class="row">
+        <button class="base--button js-personality-insights-submit-button" type="submit">Submit</button>
+      </div>
+      <h5 class="base--h5">Output:</h5>
+      <textarea class="base--textarea js-personality-insights-text-output"></textarea>
+    <% } %>
+    <h2 class="base--h2">More Watson Resources</h2>
+    <ul class="base--ul">
+      <% if (apis['text-to-speech']) { %>
+      <li class="base--li"><a class="base--a" href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/text-to-speech/api/v1/#introduction" target="_blank">Text to Speech API Reference</a></li>
+      <% } %>
+      <li class="base--li"><a class="base--a" href="http://watson-developer-cloud.github.io/" target="_blank">Watson SDK's</a> for each API</li>
+      <li class="base--li"><a class="base--a" href="https://github.com/watson-developer-cloud/" target="_blank">Watson Developer Cloud GitHub</a></li>
+      <li class="base--li"><a class="base--a" href="https://watson-api-explorer.mybluemix.net/" target="_blank">API Explorer</a></li>
+      <li class="base--li"><a class="base--a" href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/" target="_blank">Documentation</a></li>
+      <li class="base--li"><a class="base--a" href="https://console.ng.bluemix.net/docs/services/watson.html" target="_blank">Watson Bluemix Documentation</a></li>
+      <li class="base--li"><a class="base--a" href="https://console.ng.bluemix.net/catalog/?search=watson" target="_blank">Watson API Catalog on Bluemix</a></li>
+    </ul>
+    <h2 class="base--h2">Questions or issues?</h2>
+    <ul class="base--ul">
+      <li class="base--li"><a class="base--a" href="http://stackoverflow.com/search?q=watson" target="_blank">Post a question on StackOverflow</a> and use the <code class="base--code">ibm-watson</code> tag</li>
+      <li class="base--li"><a class="base--a" href="https://github.com/watson-developer-cloud/" target="_blank">Make a Github Issue</a></li>
+    </ul>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>

@@ -117,17 +117,17 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: function () {
     this.fs.copy(
-      this.templatePath('demo-boilerplate-nodejs/**/*.*'),
+      this.templatePath('app/**/*.*'),
       this.destinationPath('./')
     );
 
     this.fs.copy(
-      this.templatePath('demo-boilerplate-nodejs/**/.*'),
+      this.templatePath('app/**/.*'),
       this.destinationPath('./')
     );
 
     this.fs.copyTpl(
-      this.templatePath('demo-boilerplate-nodejs/app.js'),
+      this.templatePath('app/app.js'),
       this.destinationPath('./app.js'), {
         apis: this.props.apis,
         noAPISelected: this.props.hasNoAPISelected
@@ -135,13 +135,31 @@ module.exports = yeoman.generators.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('demo-boilerplate-nodejs/package.json'),
+      this.templatePath('app/public/js/script.js'),
+      this.destinationPath('./public/js/script.js'), {
+        apis: this.props.apis,
+        noAPISelected: this.props.hasNoAPISelected
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/views/index.ejs'),
+      this.destinationPath('./views/index.ejs'), {
+        apis: this.props.apis,
+        noAPISelected: this.props.hasNoAPISelected
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/package.json'),
       this.destinationPath('./package.json'), {
-        appName: this.props.appName
+        appName: this.props.appName,
+        apis: this.props.apis
       }
     );
 
     this.fs.delete('.git');
+    this.fs.delete('.DS_Store');
   },
 
   install: function () {

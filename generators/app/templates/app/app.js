@@ -16,11 +16,12 @@
 
 'use strict';
 
-var express    = require('express'),
-  app          = express(),
-  vcapServices = require('vcap_services'),
-  extend       = require('util')._extend,
-  watson       = require('watson-developer-cloud');
+var express = require('express');
+var app = express();
+var vcapServices = require('vcap_services');
+var extend = require('util')._extend;
+var watson = require('watson-developer-cloud');
+<% if (apis['text-to-speech']) { %>var fs = require('fs');<% } %>
 
 /**
  * This sets up configurations for Express, a NodeJS web framework.
@@ -29,24 +30,12 @@ var express    = require('express'),
 require('./config/express')(app);
 
 /**
- * To learn how to use the Watson API's with the WDC Node SDK,
+ * To learn how to use the Watson API's with the watson-developer-cloud node package,
  * see https://www.npmjs.com/package/watson-developer-cloud.
  *
  * In order to use the Watson API's, you need to obtain credentials for each API.
- * One way to get the credentials is from Bluemix.
- *
- * Getting Started with Bluemix:
- *
- * 1) Create a Bluemix account (https://console.ng.bluemix.net/)
- * 2) Browse Watson Catalog (https://console.ng.bluemix.net/catalog/?search=watson)
- * 3) Select a service (i.e. https://console.ng.bluemix.net/catalog/services/text-to-speech/)
- * 4) Click on the "Create" button, and wait for it to load.
- * 5) Click on the "Service Credentials" tab on the left side of the screen
- * 		You should see the credentials here.
- * 6) Copy and paste those credentials to the parameters below.
- *
- * For future reference, all the API's you create can be found on
- * your "Dashboard" tab on Bluemix listed under your services
+ * You can follow this guide to get credentials from Bluemix:
+ * https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/gs-credentials.shtml#getCreds
  */
 
 <% if (apis['alchemy-language']) { %>var alchemy_language = watson.alchemy_language({
@@ -178,17 +167,41 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-/**
- * This is a basic demonstration of a post route using Express.
- * See 'public/js/script.js' to see how the front-end communicates with this script.
- *
- * Try incorporating some of the code snippets in the npm page
- * (https://www.npmjs.com/package/watson-developer-cloud) and see
- * how you can integrate the Watson API's with Express routes.
+<% if (apis['text-to-speech']) { %>/**
+ * Get audio from text to speech api
+ * This will download a file to the 'public/' directory.
  */
-app.post('/api/greetings', function(req, res) {
-  res.json({ greeting: 'Greetings, ' + req.body.name });
-});
+ app.post('/api/synthesize', function(req, res, next) {
+   var params = {
+     text: req.body.text,
+     voice: 'en-US_AllisonVoice', // Optional voice
+     accept: 'audio/wav'
+   };
+   var transcript = text_to_speech.synthesize(params);
+
+   transcript.pipe(fs.createWriteStream('public/output.wav'));
+   transcript.on('error', function(error) {
+     next(error);
+   });
+   transcript.pipe(res);
+ });<% } %>
+
+<% if (apis['personality-insights']) { %>/**
+ * Get personality profile from personality insights api
+ */
+ app.post('/api/profile', function(req, res, next) {
+   var params = {
+     text: req.body.text,
+     language: 'en'
+   };
+
+   personality_insights.profile(params, function(err, response) {
+     if (err)
+       next(err);
+     else
+       res.json(response);
+   });
+ });<% } %>
 
 /**
  * This handles error propagation with Express routes.
