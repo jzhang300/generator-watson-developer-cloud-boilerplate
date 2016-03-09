@@ -1,30 +1,15 @@
 {
-  "name": "service-demo",
+  "name": "<%= appName %>",
   "version": "0.1.1",
-  "description": "A sample nodejs app for Bluemix that use the X service",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/watson-developer-cloud/service-nodejs.git"
-  },
+  "description": "A nodejs app that uses the Node SDK for Watson API's.",
   "author": "IBM Corp.",
   "contributors": [
     {
       "name": "James Zhang",
       "email": "jzhang300@us.ibm.com"
-    },
-    {
-      "name": "Eva Xiaohui Luo",
-      "email": "evaluo_xhl@us.ibm.com"
-    },
-    {
-      "name": "German Attanasio Ruiz",
-      "email": "germanatt@us.ibm.com"
     }
   ],
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/watson-developer-cloud/service-nodejs/issues"
-  },
   "scripts": {
     "start": "node app.js"
   },
@@ -35,24 +20,6 @@
     "express": "^4.12.2",
     "express-secure-only": "^0.2.1",
     "multiparty": "^4.1.2",
-    "serve-favicon": "^2.3.0",
-    "vcap_services": "^0.1.7",
-    "watson-developer-cloud": "^0.10.5"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.9.9",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.0.2",
-    "gulp-clean": "^0.3.1",
-    "gulp-concat": "^2.5.2",
-    "gulp-env": "^0.2.0",
-    "gulp-iconfont": "^1.0.0",
-    "gulp-iconfont-css": "0.0.9",
-    "gulp-json-editor": "^2.2.1",
-    "gulp-nodemon": "^2.0.2",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.0.4",
-    "gulp-uglify": "^1.4.1"
+    "watson-developer-cloud": "^1.2.5"
   }
 }

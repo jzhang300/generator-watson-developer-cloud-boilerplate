@@ -1,8 +1,2 @@
 node_modules
-bower_components
 .DS_Store
-public/css/*
-!public/css/README.md
-public/fonts/icon-fonts/*
-!public/fonts/icon-fonts/README.md
-dist/*
